@@ -17,24 +17,6 @@ driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
 #Just for a reference
 print(driver.title)
 
-#Username and password to Login
-elem = driver.find_element("xpath", '/html/body/app-root/app-landing/div/div/app-login/div/div[1]/input')
-elem.send_keys("arun.venkatesh@csiglobal.net")
-
-elem = driver.find_element("xpath", '/html/body/app-root/app-landing/div/div/app-login/div/div[2]/input')
-elem.send_keys("projectinc0.")
-
-sleep(0.5)
-
-#Click - Login Button
-elem = driver.find_element("xpath", '/html/body/app-root/app-landing/div/div/app-login/div/div[3]/input')
-elem.click()
-
-sleep(5)
-
-#Redirect to user manager
-driver.get("https://projectmanagement-8d5c4.web.app/userManager")
-
 #Lists to store the Excel values
 name = []
 short_form = []
