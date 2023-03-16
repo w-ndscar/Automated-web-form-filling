@@ -38,7 +38,7 @@ no_of_rows = int(no_of_rows)
 print(no_of_rows)
 
 #Load workbook and sheet
-file_location = "C:/Users/Arun/Documents/Timesheet/ESMT_ENTRY.xlsx"
+file_location = "C:/Users/Arun/Documents/Timesheet/ESMT.xlsx"
 workbook = openpyxl.load_workbook(file_location, data_only=True)
 sheet = workbook[she_name]
 
@@ -97,21 +97,25 @@ for i in range(len(element)):
 
     #Element
     elem3 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/div[1]/ng-autocomplete/div[1]/div[1]/input')
+    elem3.clear()
     elem3.send_keys(element[i])
     #Sheet Size - Dropdown
-    sleep(1)
+    sleep(0.5)
     elem5 = Select(driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/select')).select_by_visible_text(sh_size[i])
     #elem5.send_keys(sh_size[i])
     sleep(0.5)
     #Start Date
     elem5 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/input[1]')
+    elem5.clear()
     elem5.send_keys(st_date[i])
-    sleep(1)
+    sleep(0.5)
     #Drawing name/number
     elem6 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/input[2]')
+    elem6.clear()
     elem6.send_keys(dwg_name[i])
     #Drawing Desc.
     elem7 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/input[3]')
+    elem7.clear()
     elem7.send_keys(dwg_desc[i])
     
     #Hotkey to wait before saving
@@ -120,8 +124,6 @@ for i in range(len(element)):
     #Click - Save button
     elem8 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/div[2]/button[1]')
     elem8.click
-    sleep(0.5)
+    sleep(1.5)
     
-    #Hotkey to wait before the next iteration
-    keyboard.wait("esc")
 
