@@ -38,7 +38,7 @@ no_of_rows = int(no_of_rows)
 print(no_of_rows)
 
 #Load workbook and sheet
-file_location = "C:/Users/Arun/Documents/Timesheet/ESMT.xlsx"
+file_location = "C:/Users/Arun/Documents/Timesheet/ESMT6.xlsx"
 workbook = openpyxl.load_workbook(file_location, data_only=True)
 sheet = workbook[she_name]
 
@@ -88,42 +88,50 @@ sleep(1)
 
 #Clicks and Enters the lists' values into the form in a loop
 for i in range(len(element)):
+
     #Click - New button
     elem2 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/button')
     elem2.click()
     sleep(1)
     
+    print("\n")
+    print(" | ")
+
     #Fields
 
     #Element
+    print (element[i], " | ")
     elem3 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/div[1]/ng-autocomplete/div[1]/div[1]/input')
     elem3.clear()
     elem3.send_keys(element[i])
+
     #Sheet Size - Dropdown
+    print (sh_size[i], " | ")
     sleep(0.5)
     elem5 = Select(driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/select')).select_by_visible_text(sh_size[i])
-    #elem5.send_keys(sh_size[i])
     sleep(0.5)
+
     #Start Date
+    print (st_date[i], " | ")
     elem5 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/input[1]')
     elem5.clear()
     elem5.send_keys(st_date[i])
     sleep(0.5)
+
     #Drawing name/number
+    print (dwg_name[i], " | ")
     elem6 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/input[2]')
     elem6.clear()
     elem6.send_keys(dwg_name[i])
+
     #Drawing Desc.
+    print (dwg_desc[i], " | ")
     elem7 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/input[3]')
     elem7.clear()
     elem7.send_keys(dwg_desc[i])
     
-    #Hotkey to wait before saving
+    #Hotkey to wait before proceeding
     keyboard.wait("esc")
 
-    #Click - Save button
-    elem8 = driver.find_element("xpath", '/html/body/app-root/app-project-detail/div/div[4]/div/div/div/div/div[2]/button[1]')
-    elem8.click
-    sleep(1.5)
     
 
